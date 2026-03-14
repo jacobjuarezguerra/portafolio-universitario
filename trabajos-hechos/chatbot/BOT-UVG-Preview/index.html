@@ -538,23 +538,17 @@ Importante:
 
             const currentTimestamp = showTypingIndicator();
 
-            // Gemini API key (direct for testing)
-            const getApiKey = () => 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
+            const apiKey = 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
 
             try {
                 // Debug: Log request details
                 console.log('=== SENDING REQUEST ===');
-                console.log('API Key exists:', !!getApiKey);
-                console.log('API Key prefix:', getApiKey ? getApiKey.substring(0, 10) + '...' : 'NONE');
+                console.log('API Key exists:', !!apiKey);
+                console.log('API Key prefix:', apiKey ? apiKey.substring(0, 10) + '...' : 'NONE');
                 console.log('Model:', 'gemini-flash-lite-latest');
-                
-                // Convertir historial para Gemini (system + mensajes)
-                const geminiMessages = conversationHistory.filter(m => m && m.role && m.content).map(m => ({
-                    role: m.role === 'assistant' ? 'model' : 'user',
-                    parts: [{ text: m.content }]
-                }));
 
-                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${getApiKey}`;
+                // Gemini API key
+                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${apiKey}`;
                 
                 const response = await fetch(geminiUrl, {
                     method: 'POST',
