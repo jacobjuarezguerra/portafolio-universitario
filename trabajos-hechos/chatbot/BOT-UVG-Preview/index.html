@@ -71,16 +71,16 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .typing-indicator span {
+        .typing-dots span {
             animation: typing 1.4s infinite ease-in-out;
         }
-        .typing-indicator span:nth-child(1) {
+        .typing-dots span:nth-child(1) {
             animation-delay: 0s;
         }
-        .typing-indicator span:nth-child(2) {
+        .typing-dots span:nth-child(2) {
             animation-delay: 0.2s;
         }
-        .typing-indicator span:nth-child(3) {
+        .typing-dots span:nth-child(3) {
             animation-delay: 0.4s;
         }
         @keyframes typing {
@@ -341,17 +341,17 @@ Importante:
             const messagesDiv = container.querySelector('.max-w-full');
 
             const typingHTML = `
-                <div id="typingIndicator" class="flex gap-2 md:gap-4">
+                <div class="typing-indicator-container flex gap-2 md:gap-4">
                     <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm">
                         <span class="text-white text-[10px] md:text-xs font-bold">UVG</span>
                     </div>
                     <div class="flex flex-col gap-1 message-bubble">
                         <span class="text-[10px] md:text-xs font-medium text-gray-500 dark:text-gray-400 ml-1">Asistente UVG</span>
-                        <div id="typingBubble" class="bg-gray-100 dark:bg-[#2a2a3e] text-gray-800 dark:text-gray-100 p-3 md:p-4 rounded-2xl rounded-tl-sm shadow-sm transition-theme">
-                            <div class="typing-indicator flex gap-1">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                        <div class="typing-bubble bg-gray-100 dark:bg-[#2a2a3e] text-gray-800 dark:text-gray-100 p-3 md:p-4 rounded-2xl rounded-tl-sm shadow-sm transition-theme">
+                            <div class="typing-dots flex gap-1">
+                                <span class="w-2 h-2 bg-primary rounded-full animate-bounce"></span>
+                                <span class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+                                <span class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
                             </div>
                         </div>
                     </div>
@@ -363,7 +363,7 @@ Importante:
         }
 
         function replaceTypingWithMessage(content) {
-            const typingBubble = document.getElementById('typingBubble');
+            const typingBubble = document.querySelector('.typing-bubble');
             if (!typingBubble) {
                 console.error('Typing bubble not found');
                 return;
@@ -382,9 +382,9 @@ Importante:
 
                 typingBubble.innerHTML = `<div class="text-xs md:text-sm leading-relaxed">${formattedContent}</div>`;
 
-                const indicator = document.getElementById('typingIndicator');
-                if (indicator) {
-                    indicator.removeAttribute('id');
+                const indicatorContainer = document.querySelector('.typing-indicator-container');
+                if (indicatorContainer) {
+                    indicatorContainer.classList.remove('typing-indicator-container');
                 }
 
                 const container = document.getElementById('chatMessages');
