@@ -507,6 +507,9 @@ Importante:
             }
         }
 
+        // Global API Key for Kilo Code
+        const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsbFVzZXJJZCI6IjY3MDI2MDE3LTE2MTktNDRlNi04ZDFkLTAzYTU1YTFmZWFmYiIsImFwaVRva2VuUGVwcGVyIjpudWxsLCJ2ZXJzaW9uIjozLCJpYXQiOjE3NzM1MjgxMzEsImV4cCI6MTkzMTIwODEzMX0.boONOHNyivufeSUCFNezs93MOvmM-mDgwDRwgc-3C8Y';
+
         // Send Message
         async function sendMessage(event) {
             if (event) {
@@ -537,8 +540,6 @@ Importante:
             });
 
             const currentTimestamp = showTypingIndicator();
-
-            const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsbFVzZXJJZCI6IjY3MDI2MDE3LTE2MTktNDRlNi04ZDFkLTAzYTU1YTFmZWFmYiIsImFwaVRva2VuUGVwcGVyIjpudWxsLCJ2ZXJzaW9uIjozLCJpYXQiOjE3NzM1MjgxMzEsImV4cCI6MTkzMTIwODEzMX0.boONOHNyivufeSUCFNezs93MOvmM-mDgwDRwgc-3C8Y';
 
             try {
                 console.log('=== SENDING REQUEST ===');
