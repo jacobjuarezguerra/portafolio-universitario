@@ -538,12 +538,8 @@ Importante:
 
             const currentTimestamp = showTypingIndicator();
 
-            // Ofuscar API key de Gemini
-            const getApiKey = (() => {
-                const k = 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
-                const o = [k.slice(0, 14), k.slice(14, 26), k.slice(26)].join('');
-                return o.split('').reverse().join('');
-            })();
+            // Gemini API key (direct for testing)
+            const getApiKey = () => 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
 
             try {
                 // Debug: Log request details
