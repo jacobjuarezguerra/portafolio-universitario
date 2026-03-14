@@ -550,7 +550,7 @@ Importante:
                 console.log('=== SENDING REQUEST ===');
                 console.log('API Key exists:', !!getApiKey);
                 console.log('API Key prefix:', getApiKey ? getApiKey.substring(0, 10) + '...' : 'NONE');
-                console.log('Model:', 'gemini-2.0-flash-lite');
+                console.log('Model:', 'gemini-flash-lite-latest');
                 
                 // Convertir historial para Gemini (system + mensajes)
                 const geminiMessages = conversationHistory.filter(m => m && m.role && m.content).map(m => ({
@@ -558,7 +558,7 @@ Importante:
                     parts: [{ text: m.content }]
                 }));
 
-                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${getApiKey}`;
+                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${getApiKey}`;
                 
                 const response = await fetch(geminiUrl, {
                     method: 'POST',
