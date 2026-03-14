@@ -333,27 +333,40 @@ Importante:
         const hasPersonalConfig = typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey;
         let apiKey = null;
         
+        // Obtener la clave de personal-config si existe y limpiarla
         if (hasPersonalConfig) {
-            apiKey = PERSONAL_CONFIG.apiKey;
-            console.log('Using API key from personal-config.js');
+            apiKey = PERSONAL_CONFIG.apiKey.trim();
+            console.log('Using API key from personal-config.js (trimmed)');
         } else if (apiKeyFromStorage) {
-            apiKey = apiKeyFromStorage;
-            console.log('Using API key from localStorage');
+            apiKey = apiKeyFromStorage.trim();
+            console.log('Using API key from localStorage (trimmed)');
         }
         
-        // Debug: Mostrar información detallada de la API key
-        console.log('API Key from storage:', apiKeyFromStorage ? 'Present' : 'None');
-        console.log('Has personal config:', hasPersonalConfig);
-        if (hasPersonalConfig) {
-            console.log('Personal config key (full):', PERSONAL_CONFIG.apiKey);
-            console.log('Personal config key length:', PERSONAL_CONFIG.apiKey.length);
-            console.log('Personal config key starts with sk-or-v1-:', PERSONAL_CONFIG.apiKey.startsWith('sk-or-v1-'));
-            console.log('Personal config key prefix:', PERSONAL_CONFIG.apiKey.substring(0, 25));
+        // Validación final de la API key
+        if (!apiKey) {
+            console.error('ERROR: No API key found!');
+            openConfigModal();
+            return;
         }
-        console.log('Final API key (full):', apiKey);
-        console.log('Final API key length:', apiKey ? apiKey.length : 0);
-        console.log('Final API key starts with sk-or-v1-:', apiKey ? apiKey.startsWith('sk-or-v1-') : false);
-        console.log('Final API key prefix:', apiKey ? apiKey.substring(0, 25) : 'None');
+        
+        if (!apiKey.startsWith('sk-or-v1-')) {
+            console.error('ERROR: API key does not start with sk-or-v1-');
+            console.error('Key value:', apiKey);
+            openConfigModal();
+            return;
+        }
+        
+        if (apiKey.length < 30) {
+            console.error('ERROR: API key too short');
+            console.error('Key length:', apiKey.length);
+            openConfigModal();
+            return;
+        }
+        
+        // Debug: Mostrar información de la API key validada
+        console.log('Validated API key length:', apiKey.length);
+        console.log('Validated API key prefix:', apiKey.substring(0, 25) + '...');
+        console.log('Validated API key suffix:', '...' + apiKey.substring(apiKey.length - 10));
 
         // Dark Mode Management
         function initDarkMode() {
