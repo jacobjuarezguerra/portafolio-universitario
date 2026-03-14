@@ -431,7 +431,7 @@ Importante:
                 console.log('=== SENDING REQUEST ===');
                 console.log('API Key exists:', !!apiKey);
                 console.log('API Key prefix:', apiKey ? apiKey.substring(0, 15) + '...' : 'NONE');
-                console.log('Model:', 'anthropic/claude-3.5-sonnet');
+                console.log('Model:', 'stepfun/step-3.5-flash');
                 const response = await fetch(CONFIG.openrouter.apiUrl, {
                     method: 'POST',
                     headers: {
@@ -441,7 +441,7 @@ Importante:
                         'X-Title': 'Asistente UVG'
                     },
                     body: JSON.stringify({
-                        model: 'anthropic/claude-3.5-sonnet',
+                        model: 'stepfun/step-3.5-flash',
                         messages: conversationHistory,
                         ...CONFIG.modelParams
                     })
