@@ -365,9 +365,15 @@ Importante:
         }
 
         function replaceTypingWithMessage(content, timestamp) {
-            const typingBubble = document.getElementById('bubble-' + timestamp);
+            let typingBubble = document.getElementById('bubble-' + timestamp);
+            
             if (!typingBubble) {
-                console.error('Typing bubble not found for timestamp:', timestamp);
+                console.warn('Typing bubble not found for timestamp:', timestamp, '- trying fallback');
+                typingBubble = document.querySelector('.typing-bubble');
+            }
+            
+            if (!typingBubble) {
+                console.error('No typing bubble found at all');
                 return;
             }
 
@@ -384,7 +390,10 @@ Importante:
 
                 typingBubble.innerHTML = `<div class="text-xs md:text-sm leading-relaxed">${formattedContent}</div>`;
 
-                const indicatorContainer = document.getElementById('typing-' + timestamp);
+                let indicatorContainer = document.getElementById('typing-' + timestamp);
+                if (!indicatorContainer) {
+                    indicatorContainer = document.querySelector('.typing-indicator-container');
+                }
                 if (indicatorContainer) {
                     indicatorContainer.classList.remove('typing-indicator-container');
                 }
@@ -445,7 +454,7 @@ Importante:
                     },
                     body: JSON.stringify({
                         model: 'stepfun/step-3.5-flash',
-                        messages: conversationHistory,
+                        messages: conversationHistory.filter(m => m && m.role && m.content),
                         ...CONFIG.modelParams
                     })
                 });
