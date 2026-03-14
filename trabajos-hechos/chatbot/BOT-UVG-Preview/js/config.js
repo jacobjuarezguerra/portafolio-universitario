@@ -5,7 +5,7 @@ const CONFIG = {
     // Configuración de OpenRouter
     openrouter: {
         apiUrl: 'https://openrouter.ai/api/v1/chat/completions',
-        defaultModel: 'anthropic/claude-3.5-sonnet',
+        defaultModel: 'stepfun/step-3.5-flash:free',
 
         // Modelos alternativos disponibles
         availableModels: {
@@ -14,7 +14,8 @@ const CONFIG = {
             'gpt-4-turbo': 'openai/gpt-4-turbo',
             'gpt-3.5-turbo': 'openai/gpt-3.5-turbo',
             'gemini-pro': 'google/gemini-pro',
-            'llama-3-70b': 'meta-llama/llama-3-70b-instruct'
+            'llama-3-70b': 'meta-llama/llama-3-70b-instruct',
+            'step-3.5-flash': 'stepfun/step-3.5-flash:free'
         }
     },
 

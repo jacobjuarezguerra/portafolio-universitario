@@ -163,6 +163,22 @@ const MODELS = {
             },
             description: 'Balance entre capacidad y costo.'
         }
+    },
+
+    // StepFun
+    stepfun: {
+        'step-3.5-flash': {
+            id: 'stepfun/step-3.5-flash:free',
+            name: 'Step 3.5 Flash',
+            provider: 'StepFun',
+            contextWindow: 128000,
+            maxOutput: 4096,
+            pricing: {
+                prompt: 0.0,
+                completion: 0.0
+            },
+            description: 'Modelo gratuito de StepFun con buen rendimiento.'
+        }
     }
 };
 

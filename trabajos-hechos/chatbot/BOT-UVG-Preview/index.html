@@ -544,27 +544,27 @@ Importante:
 
             const currentTimestamp = showTypingIndicator();
 
-            try {
-                console.log('=== SENDING REQUEST ===');
-                console.log('Model:', 'kilo-auto/free');
-                console.log('API Key prefix:', apiKey.substring(0, 20));
+             try {
+                 console.log('=== SENDING REQUEST ===');
+                 console.log('Model:', 'stepfun/step-3.5-flash:free');
+                 console.log('API Key prefix:', apiKey.substring(0, 20));
 
-                const kiloUrl = `https://api.kilo.ai/api/gateway/chat/completions`;
-                console.log('URL:', kiloUrl);
-                
-                const response = await fetch(kiloUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`
-                    },
-                    body: JSON.stringify({
-                        model: 'kilo-auto/free',
-                        messages: conversationHistory.filter(m => m && m.role && m.content),
-                        temperature: 0.9,
-                        max_tokens: 2048
-                    })
-                });
+                 const openrouterUrl = 'https://openrouter.ai/api/v1/chat/completions';
+                 console.log('URL:', openrouterUrl);
+                 
+                 const response = await fetch(openrouterUrl, {
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json',
+                         'Authorization': `Bearer ${apiKey}`
+                     },
+                     body: JSON.stringify({
+                         model: 'stepfun/step-3.5-flash:free',
+                         messages: conversationHistory.filter(m => m && m.role && m.content),
+                         temperature: 0.9,
+                         max_tokens: 2048
+                     })
+                 });
 
                 console.log('=== RESPONSE STATUS ===');
                 console.log('Status:', response.status);
