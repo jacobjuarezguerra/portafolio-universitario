@@ -438,24 +438,41 @@ Importante:
 
             const currentTimestamp = showTypingIndicator();
 
+            // Ofuscar API key de Gemini
+            const getApiKey = (() => {
+                const k = 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
+                const o = [k.slice(0, 14), k.slice(14, 26), k.slice(26)].join('');
+                return o.split('').reverse().join('');
+            })();
+
             try {
                 // Debug: Log request details
                 console.log('=== SENDING REQUEST ===');
-                console.log('API Key exists:', !!apiKey);
-                console.log('API Key prefix:', apiKey ? apiKey.substring(0, 15) + '...' : 'NONE');
-                console.log('Model:', 'stepfun/step-3.5-flash');
-                const response = await fetch(CONFIG.openrouter.apiUrl, {
+                console.log('API Key exists:', !!getApiKey);
+                console.log('API Key prefix:', getApiKey ? getApiKey.substring(0, 10) + '...' : 'NONE');
+                console.log('Model:', 'gemini-2.0-flash-lite');
+                
+                // Convertir historial para Gemini (system + mensajes)
+                const geminiMessages = conversationHistory.filter(m => m && m.role && m.content).map(m => ({
+                    role: m.role === 'assistant' ? 'model' : 'user',
+                    parts: [{ text: m.content }]
+                }));
+
+                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${getApiKey}`;
+                
+                const response = await fetch(geminiUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`,
-                        'HTTP-Referer': window.location.href,
-                        'X-Title': 'Asistente UVG'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        model: 'stepfun/step-3.5-flash',
-                        messages: conversationHistory.filter(m => m && m.role && m.content),
-                        ...CONFIG.modelParams
+                        contents: geminiMessages,
+                        generationConfig: {
+                            temperature: 0.9,
+                            maxOutputTokens: 2048,
+                            topP: 0.95,
+                            topK: 40
+                        }
                     })
                 });
 
@@ -473,12 +490,11 @@ Importante:
                 const data = await response.json();
                 console.log('=== API SUCCESS RESPONSE ===');
                 console.log('Full response:', JSON.stringify(data, null, 2));
-                console.log('Choices array:', data?.choices);
-                console.log('First choice:', data?.choices?.[0]);
-                console.log('Message object:', data?.choices?.[0]?.message);
-                console.log('Content:', data?.choices?.[0]?.message?.content);
+                console.log('Candidates:', data?.candidates);
+                console.log('Content:', data?.candidates?.[0]?.content);
+                console.log('Parts:', data?.candidates?.[0]?.content?.parts);
 
-                const assistantMessage = data?.choices?.[0]?.message?.content;
+                const assistantMessage = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
                 if (!assistantMessage || typeof assistantMessage !== 'string') {
                     console.error('=== INVALID RESPONSE STRUCTURE ===');
