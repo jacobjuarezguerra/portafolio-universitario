@@ -7,7 +7,7 @@
     <script src="personal-config.js"></script>
     <script src="js/config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <script>
@@ -574,25 +574,23 @@ Importante:
             const currentTimestamp = showTypingIndicator();
 
              try {
-                 console.log('=== SENDING REQUEST ===');
-                 console.log('Model:', 'stepfun/step-3.5-flash:free');
-                 console.log('API Key prefix:', apiKey.substring(0, 20));
+                  console.log('=== SENDING REQUEST ===');
+                  console.log('Model:', 'mistralai/mistral-7b-instruct:free');
+                  console.log('API Key prefix:', apiKey.substring(0, 20));
 
-                 const openrouterUrl = 'https://openrouter.ai/api/v1/chat/completions';
-                 console.log('URL:', openrouterUrl);
-                 
-                  // Depuración: Mostrar exactamente lo que estamos enviando
-                  const requestHeaders = {
-                      'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${apiKey}`
-                  };
-                  console.log('Request Headers:', requestHeaders);
+                  const openrouterUrl = 'https://openrouter.ai/api/v1/chat/completions';
+                  console.log('URL:', openrouterUrl);
                   
                   const response = await fetch(openrouterUrl, {
                       method: 'POST',
-                      headers: requestHeaders,
+                      headers: {
+                          'Content-Type': 'application/json',
+                          'Authorization': `Bearer ${apiKey}`,
+                          'HTTP-Referer': 'https://jacobjuarezguerra.github.io/portafolio-universitario/',
+                          'X-Title': 'Asistente UVG'
+                      },
                       body: JSON.stringify({
-                          model: 'stepfun/step-3.5-flash:free',
+                          model: 'mistralai/mistral-7b-instruct:free',
                           messages: conversationHistory.filter(m => m && m.role && m.content),
                           temperature: 0.9,
                           max_tokens: 2048
