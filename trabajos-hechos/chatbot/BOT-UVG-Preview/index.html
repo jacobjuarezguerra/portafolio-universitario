@@ -332,6 +332,14 @@ Importante:
         const apiKeyFromStorage = localStorage.getItem('openrouter_api_key');
         const hasPersonalConfig = typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey;
         let apiKey = apiKeyFromStorage || (hasPersonalConfig ? PERSONAL_CONFIG.apiKey : null);
+        
+        // Debug: Mostrar información de la API key (sin revelar la key completa)
+        console.log('API Key from storage:', apiKeyFromStorage ? 'Present' : 'None');
+        console.log('Has personal config:', hasPersonalConfig);
+        if (hasPersonalConfig) {
+            console.log('Personal config key prefix:', PERSONAL_CONFIG.apiKey.substring(0, 20) + '...');
+        }
+        console.log('Final API key prefix:', apiKey ? apiKey.substring(0, 20) + '...' : 'None');
 
         // Dark Mode Management
         function initDarkMode() {
