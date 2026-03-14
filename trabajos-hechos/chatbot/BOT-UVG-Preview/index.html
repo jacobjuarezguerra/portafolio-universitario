@@ -328,16 +328,10 @@ Importante:
 - Responde en español de Guatemala (vos en lugar de tú cuando sea apropiado)`;
 
         let conversationHistory = [];
-        // API key ofuscada para evitar detección por bots
-        (function() {
-            const p1 = 'sk-or-v1-';
-            const p2 = '22dbadf71a20ccca9bb1f72c52cd0da61506e24788dbcf0d48405b83c925cda3';
-            const p3 = p1 + p2;
-            window._cfg = { k: p3 };
-        })();
+        // Obtener API key de configuración personal o localStorage
         const apiKeyFromStorage = localStorage.getItem('openrouter_api_key');
         const hasPersonalConfig = typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey;
-        let apiKey = apiKeyFromStorage || hasPersonalConfig || window._cfg.k;
+        let apiKey = apiKeyFromStorage || (hasPersonalConfig ? PERSONAL_CONFIG.apiKey : null);
 
         // Dark Mode Management
         function initDarkMode() {
