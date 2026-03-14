@@ -2,6 +2,8 @@
 .env
 .env.local
 config.local.js
+config.json
+personal-config.js
 
 # Archivos del sistema
 .DS_Store

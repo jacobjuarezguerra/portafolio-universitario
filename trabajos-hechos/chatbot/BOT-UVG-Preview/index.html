@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistente UVG - Chat</title>
+    <script src="personal-config.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -229,7 +230,7 @@ Importante:
 - Responde en español de Guatemala (vos en lugar de tú cuando sea apropiado)`;
 
         let conversationHistory = [];
-        let apiKey = localStorage.getItem('openrouter_api_key') || '';
+        let apiKey = localStorage.getItem('openrouter_api_key') || (typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey) || '';
 
         // Dark Mode Management
         function initDarkMode() {
