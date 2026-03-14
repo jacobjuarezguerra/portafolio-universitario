@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Mes - Portafolio UVG</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portafolio UVG</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="primer-mes.html">Mi Primer Mes</a></li>
+                <li><a href="aprendi-computacion.html">Computación</a></li>
+                <li><a href="privado.html">Privado</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Mi Primer Mes en la Universidad</h2>
+            <p>Durante mi primer mes en la universidad he aprendido principalmente cómo funciona la vida universitaria y cómo adaptarme a este nuevo entorno académico. Ha sido una experiencia desafiante pero gratificante.</p>
+        </section>
+
+        <section class="section">
+            <h3>Trabajos por Curso</h3>
+            <p>A continuación presento un trabajo representativo de cada curso que llevé este primer mes:</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>🧬 Ciencias de la Vida</h4>
+                    <p>Informe 6 de Laboratorio</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0;">Estudio de seres vivos en el laboratorio.</p>
+                    <a href="trabajos-hechos/Año 1 2026/Semestre 1/Ciencias de la Vida/Lab/Informes/Informe 6.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">📄 Ver Informe</a>
+                </div>
+                
+                <div class="card">
+                    <h4>⚗️ Química</h4>
+                    <p>Informe 3: Cromatografía</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0;">Técnicas de separación de mezclas.</p>
+                    <a href="trabajos-hechos/Año 1 2026/Semestre 1/Quimica/Lab/Informes/Informe 3 Cromatografia.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">📄 Ver Informe</a>
+                </div>
+                
+                <div class="card">
+                    <h4>🔢 Matemáticas</h4>
+                    <p>Tabla de Resumen - Autoaprendizaje</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0;">Resumen de conceptos matemáticos.</p>
+                    <a href="trabajos-hechos/Año 1 2026/Semestre 1/Mate/Tabla de resumen para Autoaprendizaje 1-1.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">📄 Ver Tabla</a>
+                </div>
+                
+                <div class="card">
+                    <h4>💬 Comunicación Efectiva</h4>
+                    <p>Actividad Propósitos Lingüísticos</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0;">Estudio de propósitos lingüísticos.</p>
+                    <a href="trabajos-hechos/Año 1 2026/Semestre 1/Comunicación Efectiva/Actividad Propósitos Lingüísticos.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">📄 Ver PDF</a>
+                </div>
+                
+                <div class="card">
+                    <h4>🎨 Intro Computer Science</h4>
+                    <p>Design Thinking</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0;">Metodología de diseño centrado en el usuario.</p>
+                    <a href="trabajos-hechos/Año 1 2026/Semestre 1/Intro Computer Science/design thinking 1.pdf" target="_blank" style="color: var(--primary); font-weight: 600;">📄 Ver PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Fotos del Laboratorio</h3>
+            <div class="diagram-container" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <img src="assets/images/lab.jpg" alt="Laboratorio 1" class="square-img">
+                <img src="assets/images/lab2.jpg" alt="Laboratorio 2" class="square-img">
+                <img src="assets/images/lab3.jpg" alt="Laboratorio 3" class="square-img">
+                <img src="assets/images/lab4.jpg" alt="Laboratorio 4" class="square-img">
+                <img src="assets/images/lab5.jpg" alt="Laboratorio 5" class="square-img">
+                <img src="assets/images/lab6.jpg" alt="Laboratorio 6" class="square-img">
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Habilidades Desarrolladas</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                <li>Elaboración de informes académicos.</li>
+                <li>Uso de instrumentos en laboratorios.</li>
+                <li>Interacción con otras personas y trabajo en equipo.</li>
+                <li>Adaptación al ritmo universitario.</li>
+                <li>Gestión del tiempo y creación de nuevas rutinas diarias.</li>
+                <li>Buenas prácticas de comunicación.</li>
+                <li>Desarrollo del pensamiento crítico y analítico.</li>
+                <li>Elaboración de mapas de empatía (Design Thinking).</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Portafolio Universitario - Jacob Juárez Guerra - UVG</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

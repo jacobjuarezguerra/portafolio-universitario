@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Jacob Juárez Guerra</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portafolio UVG</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="primer-mes.html">Mi Primer Mes</a></li>
+                <li><a href="aprendi-computacion.html">Computación</a></li>
+                <li><a href="privado.html">Privado</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="assets/images/perfil.gif" alt="Foto de perfil" class="hero-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23007A33%22 width=%22200%22 height=%22200%22/><text x=%22100%22 y=%22110%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2240%22>👤</text></svg>'">
+            <h1>Jacob Juárez Guerra</h1>
+            <p class="career">Ingeniería en Ciencias de la Computación - Universidad del Valle de Guatemala</p>
+            <p class="intro">Mi nombre es Jacob Juárez Guerra y soy estudiante de Ingeniería en Ciencias de la Computación en la Universidad del Valle de Guatemala. Este portafolio documenta mis experiencias, aprendizajes y habilidades desarrolladas durante mi primer mes en la universidad.</p>
+        </section>
+
+        <section class="section">
+            <h2>Explora mi Portafolio</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>Acerca de Mí</h4>
+                    <p>Conoce más sobre quién soy, mis intereses y por qué elegí esta carrera.</p>
+                </div>
+                <div class="card">
+                    <h4>Mi Primer Mes</h4>
+                    <p>Mis primeras experiencias, aprendizajes y adaptación a la vida universitaria.</p>
+                </div>
+                <div class="card">
+                    <h4>Habilidades Universitarias</h4>
+                    <p>Lo que he aprendido: elaboración de informes, trabajo en equipo y más.</p>
+                </div>
+                <div class="card">
+                    <h4>Computación</h4>
+                    <p>Mis avances en programación: diagramas de flujo, Python y loops.</p>
+                </div>
+                <div class="card">
+                    <h4>Sección Privada</h4>
+                    <p>Reflexión personal sobre mi primer mes. Requiere contraseña.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Portafolio Universitario - Ingeniería en Computación UVG</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

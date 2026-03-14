@@ -1,0 +1,28 @@
+#Algoritmos y Programación Basica laboratorio 2
+#02/19/2026
+
+#Análisis del consumo energético del Campus Central UVG
+
+#Definir y solicitar los datos de entrada
+numEdificios=(int)(input("Ingrese el número de edificios: "))
+consumopromediokWh=(float)(input("Ingrese el consumo promedio en kWh por edificio: "))
+diasOperacion=(int)(input("Ingrese el número de días de operación: "))
+CantidadEstudiantes=(int)(input("Ingrese la cantidad de estudiantes: "))
+
+
+#Calculos y constante
+TARIFA_KWH = 1.05  
+costo = numEdificios * consumopromediokWh * diasOperacion * TARIFA_KWH
+costoPromedio = costo / CantidadEstudiantes
+consumomensualtotalKwh = numEdificios * consumopromediokWh * diasOperacion
+costodiariopromedio = costo / diasOperacion
+
+
+
+
+#outputs, resultados
+
+print(f"El consumo mensual total de energía en kWh es: {consumomensualtotalKwh:.2f} kWh")
+print(f"El costo total de energía para los edificios es: Q{costo:.2f}")
+print(f"El costo diario promedio de energía es: Q{costodiariopromedio:.2f}")
+print(f"El costo promedio de energía por estudiante es: Q{costoPromedio:.2f}")

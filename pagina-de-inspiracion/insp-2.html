@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b4bffe", // Catppuccin Lavender/Mocha accent
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#1e1e2e", // Catppuccin Mocha Base
+                        "surface0": "#313244",
+                        "surface1": "#45475a",
+                        "overlay0": "#6c7086",
+                        "text-main": "#cdd6f4",
+                        "subtext0": "#a6adc8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(49, 50, 68, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(180, 191, 254, 0.1);
+        }
+        .glass-nav {
+            background: rgba(30, 30, 46, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(180, 191, 254, 0.1);
+        }
+        body {
+            background-color: #1e1e2e;
+            background-image: radial-gradient(circle at 20% 20%, rgba(180, 191, 254, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 80%, rgba(203, 166, 247, 0.05) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-display text-text-main min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<header class="glass-nav sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold tracking-tight">About Me</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-surface0 dark:bg-surface0 hover:bg-surface1 transition-colors text-text-main">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary text-background-dark hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-4xl mx-auto w-full px-6 py-8 flex flex-col gap-8">
+<!-- Profile Section -->
+<div class="glass-card rounded-xl p-8 flex flex-col md:flex-row items-center gap-8">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 ring-4 ring-primary/20" data-alt="Professional portrait of Alex River designer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCqCQ0RP-DJzC0TVMS8uNspeDGwwK-Ay3y87n5_i2o8XX8BOg5n_0zrcMDZQyi3oiX1FFcbxwROW2-MUTHtwCHLjjtJq7eWRVitdnTnq2becyhMeqrt3_G9729lpGHmgAlIXwuSlstHzWEBoR1YC1MzKNoHVSBlPMI_w6_UXwHkSIFyaaSrZGPmwTCXh19VgRPDPKx0asuUloMTbw1whzL-X0H3Ouz40W2aofOxg24pBiIOvhHu7LS2EimnL7sGrrL3jkwy7RAzBGR");'>
+</div>
+<div class="absolute bottom-1 right-1 h-6 w-6 bg-green-500 border-4 border-surface0 rounded-full shadow-lg"></div>
+</div>
+<div class="flex flex-col items-center md:items-start text-center md:text-left">
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">Alex River</h1>
+<p class="text-primary font-medium text-lg">Digital Product Designer</p>
+<div class="flex items-center gap-2 mt-2 text-subtext0">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<p class="text-sm">San Francisco, CA</p>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Sidebar Nav -->
+<aside class="md:col-span-1 flex flex-col gap-2">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-subtext0 hover:bg-surface0 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-hover:text-primary">home</span>
+<p class="text-sm font-medium">Home</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-subtext0 hover:bg-surface0 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-hover:text-primary">folder_special</span>
+<p class="text-sm font-medium">Portfolio</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/20 text-primary border border-primary/20 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<p class="text-sm font-semibold">About</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-subtext0 hover:bg-surface0 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-hover:text-primary">alternate_email</span>
+<p class="text-sm font-medium">Contact</p>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<!-- Journey Section -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="h-48 w-full bg-center bg-cover" data-alt="Modern minimalist office workspace with desk and plants" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCd7JDRwMLUGIyb45jQFofxKsWeT2dOSA2_agn3PjohOPq1aAACyMGBk52psmlfwBgFebzNpX8zR0tnASdOAW5Ebh2jPWqs7_3ZdNGexblA7NDDdGhuLi5Eu5Id-BI5ZBhYgDrcVJz5eXqJravoPqG2uPGZ_SvnS1oAD5sbFNmwWB_l00K6FaZi9Qw1OXkfmb3UI1kPox9d9_II6gFCcZ1fCZP7AuwWEMSqznvMHUE8JLM_hSbaNuVvn0qDmTVD-jCZtSG1QR1xSSv7");'>
+</div>
+<div class="p-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                                    My Journey
+                                </h3>
+<p class="text-subtext0 leading-relaxed">
+                                    Passionate about creating intuitive user experiences that blend aesthetics with functionality. With over 8 years of experience, I specialize in design systems and mobile-first solutions. I believe that good design is invisible and focuses on the user's needs first.
+                                </p>
+</div>
+</div>
+<!-- Expertise Section -->
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold px-1">Core Expertise</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="glass-card p-4 rounded-lg flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Visual Design</p>
+<p class="text-xs text-subtext0 mt-1">High-fidelity UI and branding assets.</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-lg flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">dynamic_form</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">UX Research</p>
+<p class="text-xs text-subtext0 mt-1">User flows and usability testing.</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-lg flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Design Systems</p>
+<p class="text-xs text-subtext0 mt-1">Scalable component libraries.</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-lg flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Prototyping</p>
+<p class="text-xs text-subtext0 mt-1">Interactive Figma prototypes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-auto px-6 py-8 border-t border-surface0/50 flex flex-col items-center gap-4">
+<div class="flex gap-6">
+<a class="text-subtext0 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-subtext0 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">code</span></a>
+<a class="text-subtext0 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">work</span></a>
+</div>
+<p class="text-overlay0 text-xs">© 2024 Alex River Design. Built with passion.</p>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b4bffe", // Lavender (Mocha)
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#1e1e2e", // Mocha Base
+                        "surface": "#313244", // Mocha Surface
+                        "overlay": "rgba(49, 50, 68, 0.6)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(49, 50, 68, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(180, 191, 254, 0.1);
+        }
+        .glass-hover:hover {
+            background: rgba(180, 191, 254, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full px-6 py-4 glass border-b border-primary/10">
+<div class="max-w-6xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">school</span>
+<h2 class="text-lg font-bold tracking-tight">Academic Portfolio</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Home</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Projects</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Resume</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-surface/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary/50 w-48 lg:w-64 text-slate-200 placeholder-slate-500" placeholder="Search resources..." type="text"/>
+</div>
+<button class="glass p-2 rounded-lg text-primary glass-hover">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<div class="size-10 rounded-full border-2 border-primary/20 bg-cover bg-center" data-alt="Profile picture of a young professional student" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCV9RHL2o0bqyu3pgL614zNK-lGHNAnUrqyMqPaFctnF4hV4It9SVpOkBzivE87I6ozDafzNjTWnwW3FNlFlpBfrW36E_WozjRjwCSq0q-79GI-NWdtRDEmiqfzIhqNgwJXdCbA46_ZOt67Hngx0qiSnRga4qUZCaOLKWtcE6oGaCfy6n0SWgWGwPi87AW4iB507mnDrDGJSLhFYyfW4v5MhiPmiSgtaHAH2YoZitMAcQfLmvbbThGj3M1kMVIIAR6jNTh9SugmddzO");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-5xl mx-auto px-6 py-10">
+<!-- Hero Section -->
+<section class="glass rounded-2xl p-8 mb-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+<div class="relative">
+<div class="size-40 rounded-full border-4 border-primary/30 p-1">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Close up portrait of Alex Rivers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAses3I55qcHCxclHakuCj1nL_VhWLE4q2tMyQr0wk7DARvT5VFzVTTSwxNw93rK4Z_-hHyuTCX7PLp9-GqakUG-qcigt0rE2HyICKaaOQpoD_oIZ-K2aUNdh7FzMLJP8quSGxJWvKasTp30pk2qcT_sd9zIuROo7unCViDpa7eSQooThswjSktUf9V9-eAkgkU3WPYFWsclyp_RPtOXWHNRxKvadOJOS4d-4bk9mBnpBMjd54apSii5SWhwMloQZglzkqsZXoWUj_T");'></div>
+</div>
+<div class="absolute bottom-2 right-2 bg-primary text-background-dark size-8 rounded-full flex items-center justify-center border-4 border-surface">
+<span class="material-symbols-outlined text-sm font-bold">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h1 class="text-3xl font-bold text-slate-100 mb-1">Alex Rivers</h1>
+<p class="text-primary font-medium text-lg mb-2">Digital Design &amp; Computer Science Student</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 text-slate-400 text-sm mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">location_on</span> Lavender University</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">calendar_today</span> Class of 2025</span>
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-3">
+<button class="bg-primary hover:bg-primary/90 text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span> Download CV
+                        </button>
+<button class="glass glass-hover text-slate-100 px-6 py-2.5 rounded-lg font-bold text-sm transition-all">
+                            View Portfolio
+                        </button>
+</div>
+</div>
+</section>
+<!-- Tabs -->
+<nav class="flex border-b border-primary/10 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+<a class="px-6 py-4 border-b-2 border-primary text-primary font-bold text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">star</span> Featured Work
+                </a>
+<a class="px-6 py-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">psychology</span> Skills
+                </a>
+<a class="px-6 py-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">work</span> Experience
+                </a>
+<a class="px-6 py-4 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">article</span> Publications
+                </a>
+</nav>
+<!-- Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<!-- Card 1 -->
+<div class="group relative overflow-hidden rounded-2xl glass border border-primary/10 aspect-video flex flex-col justify-end p-6 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern UI design system components and colors" style='background-image: linear-gradient(0deg, rgba(30, 30, 46, 0.9) 0%, rgba(30, 30, 46, 0.2) 60%, rgba(30, 30, 46, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNH3yNipAo4gUtKhWa5JSxZ2g_z06i1ph59nx7vvV-H4jaJmw-qYLELCdiytoLWircSanCGMlJ26yfRAUMlKinsxz1gEXhT4efCkF5IlarazklNXX0Kv_uMRBVA68itKFrGr0rnIztewZXjoptKDJxCA7A374leCbRHMCJz-gAqw7Sc2R9C55yZNcLnp6tdjDdHgFWHuObY15aa5MyoYBWpAlA-s21R2CYitDz5V3DdsnDEYk6_IQfGzeW_MWNz7Shg9OdrzDsjy35");'>
+</div>
+<div class="relative z-10">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-2 block">Case Study</span>
+<h3 class="text-xl font-bold text-white mb-2">Modern UI Design System</h3>
+<p class="text-slate-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">A comprehensive set of design tokens and components for educational platforms.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative overflow-hidden rounded-2xl glass border border-primary/10 aspect-video flex flex-col justify-end p-6 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Abstract code on a dark screen representing a web application" style='background-image: linear-gradient(0deg, rgba(30, 30, 46, 0.9) 0%, rgba(30, 30, 46, 0.2) 60%, rgba(30, 30, 46, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqJXwriNkRmnZwuSZnIuKiYft-7UZSnQLL0gngP6oaxJH8cGHb9DY2TM04CarXw3T9hMuNy4zkmNscXaPhYdulErDqE7yFkWmJMkRaP_ZNw2E8kZ1zqcc2wKjfNIjtz1KdQZC8zckD1yYnSP_K4eNpdTpx2Foyz3G7Me9IK-wzFt2FSIU1X86XSEZscdIAV4BkfFwbn3xzW79EdddUjTVnY2GzryY-xfNN6K2W__iGLbbyce90a5UqeWbkFTc6XGDBlC72UiztVyYI");'>
+</div>
+<div class="relative z-10">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-2 block">Development</span>
+<h3 class="text-xl font-bold text-white mb-2">Full-stack Web App</h3>
+<p class="text-slate-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">React and Node.js based collaborative platform for university research groups.</p>
+</div>
+</div>
+</div>
+<!-- Technical Skills Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-slate-100">Technical Skills</h2>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+<div class="glass p-4 rounded-xl flex items-center gap-3 glass-hover">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-200">UI/UX Design</p>
+<p class="text-[10px] text-slate-500 uppercase">Expert</p>
+</div>
+</div>
+<div class="glass p-4 rounded-xl flex items-center gap-3 glass-hover">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-200">React / Vue</p>
+<p class="text-[10px] text-slate-500 uppercase">Advanced</p>
+</div>
+</div>
+<div class="glass p-4 rounded-xl flex items-center gap-3 glass-hover">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-200">PostgreSQL</p>
+<p class="text-[10px] text-slate-500 uppercase">Intermediate</p>
+</div>
+</div>
+<div class="glass p-4 rounded-xl flex items-center gap-3 glass-hover">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-200">Python / C++</p>
+<p class="text-[10px] text-slate-500 uppercase">Advanced</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-8 glass border-t border-primary/10 mt-auto">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-400 text-sm">© 2024 Alex Rivers Portfolio. Built with Tailwind CSS.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computación - Portafolio UVG</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portafolio UVG</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="primer-mes.html">Mi Primer Mes</a></li>
+                <li><a href="aprendi-computacion.html">Computación</a></li>
+                <li><a href="privado.html">Privado</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Mis Aprendizajes en Computación</h2>
+            <p>En el área de computación ya tenía algunos conocimientos básicos, pero durante este primer mes pude reforzar y profundizar en varios temas importantes en el curso de Algoritmos y Programación Básica.</p>
+        </section>
+
+        <section class="section">
+            <h3>1. Diagramas de Flujo</h3>
+            <p>Los diagramas de flujo fueron mi primera introducción a la lógica de programación. Aprendí a representar algoritmos de manera visual antes de escribir código.</p>
+            <div class="diagram-container">
+                <img src="assets/images/Diagrama de flujo.png" alt="Diagrama de flujo" style="max-width: 100%; border-radius: 8px;">
+            </div>
+            <div class="card">
+                <h4>Reflexión</h4>
+                <p>Entendí que antes de programar, es crucial planificar. Los diagramas de flujo ayudan a visualizar el problema y su solución antes de escribir una sola línea de código.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>2. Loops (Ciclos) en Python</h3>
+            <p>Los bucles fueron un concepto revelador. Descubrí cómo automatizar tareas repetitivas con pocas líneas de código.</p>
+            
+            <h4>Loop For - Ejemplo del curso</h4>
+            <div class="code-block">
+<span class="comment"># Ejercicio: Imprimir números del 1 al 5</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="string">1</span>, <span class="string">6</span>):
+    <span class="function">print</span>(<span class="string">f"Número: </span>{i}<span class="string">"</span>)
+
+<span class="comment"># Ejemplo: Recorrer una lista</span>
+<span class="keyword">frutas</span> = [<span class="string">"manzana"</span>, <span class="string">"banano"</span>, <span class="string">"uva"</span>]
+<span class="keyword">for</span> fruta <span class="keyword">in</span> frutas:
+    <span class="function">print</span>(<span class="string">f"Me gusta la </span>{fruta}<span class="string">"</span>)
+            </div>
+
+            <h4>Loop While</h4>
+            <div class="code-block">
+<span class="comment"># Contar hacia atrás</span>
+<span class="keyword">contador</span> = <span class="string">5</span>
+<span class="keyword">while</span> contador > <span class="string">0</span>:
+    <span class="function">print</span>(contador)
+    contador -= <span class="string">1</span>
+<span class="function">print</span>(<span class="string">"¡Despegue!"</span>)
+            </div>
+
+            <h4>Ciclos Anidados - Ejemplo con Turtle</h4>
+            <div class="code-block">
+<span class="comment"># Dibujo con ciclos anidados</span>
+<span class="keyword">import</span> turtle
+
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="string">6</span>):
+    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(<span class="string">6</span>):
+        turtle.forward(<span class="string">50</span>)
+        turtle.right(<span class="string">60</span>)
+    turtle.right(<span class="string">60</span>)
+            </div>
+
+            <div class="card">
+                <h4>Reflexión</h4>
+                <p>Los loops me enseñaron el poder de la automatización. Imaginar cuántas líneas de código necesitaría si tuviera que escribir cada iteración manualmente... ¡los bucles hacen posible lo imposible!</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>3. Chatbot UVG</h3>
+            <p>Durante este primer mes también trabajé en un proyecto personal: un chatbot para la Universidad del Valle de Guatemala. Este proyecto me permitió aplicar mis conocimientos de programación web.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>🌐 Tecnología</h4>
+                    <p>HTML, CSS (Tailwind), JavaScript y integración con OpenRouter API para conectar con modelos de IA como Claude y GPT.</p>
+                </div>
+                <div class="card">
+                    <h4>✨ Características</h4>
+                    <p>Interfaz de chat moderna, soporte para múltiples modelos de IA, modo oscuro, y personalización de la personalidad del asistente.</p>
+                </div>
+                <div class="card">
+                    <h4>🎯 Objetivo</h4>
+                    <p>Crear un asistente virtual para ayudar a estudiantes de la UVG con dudas académicas y información sobre la universidad.</p>
+                </div>
+                <div class="card">
+                    <h4>📚 Aprendizajes</h4>
+                    <p>Trabajo con APIs externas, manejo de datos JSON, diseño de interfaces de usuario y pensamiento lógico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Prueba el Chatbot UVG</h3>
+            <p>Aquí puedes probar el chatbot que desarrollé para la Universidad del Valle de Guatemala:</p>
+            
+            <div style="margin-top: 1rem;">
+                <iframe id="chatbot-frame" src="trabajos-hechos/chatbot/BOT-UVG-Preview/index.html" style="width: 100%; height: 500px; border: 2px solid var(--border); border-radius: 12px; background: var(--bg-secondary);" title="Chatbot UVG"></iframe>
+            </div>
+            <script>
+                document.getElementById('chatbot-frame').addEventListener('load', function() {
+                    try {
+                        this.contentWindow.localStorage.setItem('openrouter_api_key', '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');
+                    } catch(e) {}
+                });
+            </script>
+        </section>
+
+        <section class="section">
+            <h3>Más Allá del Código</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>🐛 Depuración</h4>
+                    <p>Aprendí que los errores son parte del proceso. Cada bug es una oportunidad de aprender.</p>
+                </div>
+                <div class="card">
+                    <h4>📝 Documentación</h4>
+                    <p>Comentar el código ayuda a otros y a mi yo futuro a entender lo que escribí.</p>
+                </div>
+                <div class="card">
+                    <h4>🧩 Modularidad</h4>
+                    <p>Dividir problemas grandes en partes pequeñas hace todo más manejable.</p>
+                </div>
+                <div class="card">
+                    <h4>💪 Persistencia</h4>
+                    <p>La programación requiere paciencia. Los problemas complejos se resuelven paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Metacognición</h3>
+            <div class="reflection">
+                <h4>¿Qué he aprendido sobre mi aprendizaje?</h4>
+                <p>Reflexionando sobre mi proceso de aprendizaje en computación:</p>
+                <ul>
+                    <li>Aprendo mejor cuando práctico activamente.</li>
+                    <li>Cometer errores es esencial para el aprendizaje.</li>
+                    <li>Pedir ayuda cuando estoy atascado es estrategia.</li>
+                    <li>La paciencia es clave para conceptos difíciles.</li>
+                    <li>Enseñar a otros solidifica mi propio conocimiento.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Portafolio Universitario - Jacob Juárez Guerra - UVG</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

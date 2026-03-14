@@ -1,0 +1,24 @@
+{
+  "name": "uvg-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot conversacional para estudiantes de la Universidad del Valle de Guatemala",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=index.html"
+  },
+  "keywords": [
+    "chatbot",
+    "uvg",
+    "openrouter",
+    "ai",
+    "assistant",
+    "universidad"
+  ],
+  "author": "UVG",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+}

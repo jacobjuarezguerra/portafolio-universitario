@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección Privada - Portafolio UVG</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portafolio UVG</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="primer-mes.html">Mi Primer Mes</a></li>
+                <li><a href="aprendi-computacion.html">Computación</a></li>
+                <li><a href="privado.html">Privado</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="login-form-container">
+            <div class="login-form">
+                <h2>🔒 Sección Privada</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Ingresa la contraseña para acceder a mis reflexiones personales.</p>
+                <form id="login-form">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <button type="submit">Acceder</button>
+                </form>
+                <p class="error-msg">❌ Contraseña incorrecta. Intenta de nuevo.</p>
+                <p class="success-msg">✅ ¡Acceso concedido! Cargando contenido...</p>
+            </div>
+        </div>
+
+        <div id="private-content" style="display: none;">
+            <section class="section private-content">
+                <h2>Reflexión Personal sobre Mi Primer Mes</h2>
+                <p>Esta sección contiene una reflexión personal sobre mi primer mes en la universidad, con un resumen de mis aprendizajes, desafíos y crecimiento personal.</p>
+            </section>
+
+            <section class="section private-content">
+                <h3>Resumen de Aprendizajes</h3>
+                <p>Durante este primer mes he aprendido mucho más de lo que esperaba. Desde elaborar informes académicos hasta trabajar en equipo con mis compañeros, cada día fue una nueva oportunidad de aprendizaje.</p>
+                <p>El curso de Algoritmos y Programación Básica me permitió profundizar en conocimientos que ya tenía pero que nunca había formalizado. Ahora entiendo la importancia de planificar antes de programar, usando diagramas de flujo.</p>
+            </section>
+
+            <section class="section private-content">
+                <h3>Desafíos</h3>
+                <p>No todo fue fácil. La adaptación al ritmo universitario fue desafiante.学会 a gestionar mi tiempo de manera más eficiente y a crear nuevas rutinas diarias.</p>
+                <p>También aprendí a manejar la presión académica y a pedir ayuda cuando la necesito, algo que antes no hacía con facilidad.</p>
+            </section>
+
+            <section class="section private-content">
+                <h3>Crecimiento Personal</h3>
+                <p>Este mes me ha demostrado que soy capaz de más de lo que pensaba. He desarrollado habilidades interpersonales, mejorado mi comunicación y aprendido a trabajar en equipo.</p>
+                <p>Mis intereses por los videojuegos y la programación se han convertido en algo más que un hobby: ahora son el camino profesional que quiero seguir.</p>
+            </section>
+
+            <section class="section private-content">
+                <h3>Mirando hacia el Futuro</h3>
+                <div class="reflection">
+                    <h4>Mis expectativas</h4>
+                    <p>Espero continuar aprendiendo y creciendo tanto académica como personalmente. Quiero seguir desarrollando proyectos propios y talvez algún día crear una extensión para navegadores o un videojuego.</p>
+                    <p>Gracias a este primer mes, me siento más seguro de mi decisión de estudiar Ingeniería en Ciencias de la Computación en la UVG.</p>
+                </div>
+            </section>
+
+            <section class="section private-content" style="text-align: center;">
+                <button onclick="logout()" style="background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; font-size: 1rem;">Cerrar Sesión</button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Portafolio Universitario - Ingeniería en Computación UVG</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
