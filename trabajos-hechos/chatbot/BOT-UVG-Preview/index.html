@@ -507,10 +507,9 @@ Importante:
             }
         }
 
-        // Global API Key for Kilo Code - use from personal config if available, otherwise use default
-        let apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsbFVzZXJJZCI6IjY3MDI2MDE3LTE2MTktNDRlNi04ZDFkLTAzYTU1YTFmZWFmYiIsImFwaVRva2VuUGVwcGVyIjpudWxsLCJ2ZXJzaW9uIjozLCJpYXQiOjE3NzM1MjgxMzEsImV4cCI6MTkzMTIwODEzMX0.boONOHNyivufeSUCFNezs93MOvmM-mDgwDRwgc-3C8Y';
-        if (typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey) {
-            apiKey = PERSONAL_CONFIG.apiKey;
+        // Update API Key for Kilo Code if not already set
+        if (!apiKey || apiKey === 'sk-or-v1-TU_API_KEY_AQUI') {
+            apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsbFVzZXJJZCI6IjY3MDI2MDE3LTE2MTktNDRlNi04ZDFkLTAzYTU1YTFmZWFmYiIsImFwaVRva2VuUGVwcGVyIjpudWxsLCJ2ZXJzaW9uIjozLCJpYXQiOjE3NzM1MjgxMzEsImV4cCI6MTkzMTIwODEzMX0.boONOHNyivufeSUCFNezs93MOvmM-mDgwDRwgc-3C8Y';
         }
 
         // Send Message
