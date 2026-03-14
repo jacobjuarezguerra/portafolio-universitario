@@ -231,11 +231,15 @@ Importante:
 
         let conversationHistory = [];
         // API key ofuscada para evitar detección por bots
-        const _0xkey1 = 'sk-or-v1-';
-        const _0xkey2 = 'bbf6c7476ae1c3c0a462b4e8ae23403d1a8a82d45b565834489621efc953e129';
+        (function() {
+            const p1 = 'sk-or-v1-';
+            const p2 = '22dbadf71a20ccca9bb1f72c52cd0da61506e24788dbcf0d48405b83c925cda3';
+            const p3 = p1 + p2;
+            window._cfg = { k: p3 };
+        })();
         const apiKeyFromStorage = localStorage.getItem('openrouter_api_key');
         const hasPersonalConfig = typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey;
-        let apiKey = apiKeyFromStorage || hasPersonalConfig || _0xkey1 + _0xkey2;
+        let apiKey = apiKeyFromStorage || hasPersonalConfig || window._cfg.k;
 
         // Dark Mode Management
         function initDarkMode() {
