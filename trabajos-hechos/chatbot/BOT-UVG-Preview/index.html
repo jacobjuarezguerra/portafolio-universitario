@@ -331,15 +331,29 @@ Importante:
         // Obtener API key de configuración personal o localStorage
         const apiKeyFromStorage = localStorage.getItem('openrouter_api_key');
         const hasPersonalConfig = typeof PERSONAL_CONFIG !== 'undefined' && PERSONAL_CONFIG.apiKey;
-        let apiKey = apiKeyFromStorage || (hasPersonalConfig ? PERSONAL_CONFIG.apiKey : null);
+        let apiKey = null;
         
-        // Debug: Mostrar información de la API key (sin revelar la key completa)
+        if (hasPersonalConfig) {
+            apiKey = PERSONAL_CONFIG.apiKey;
+            console.log('Using API key from personal-config.js');
+        } else if (apiKeyFromStorage) {
+            apiKey = apiKeyFromStorage;
+            console.log('Using API key from localStorage');
+        }
+        
+        // Debug: Mostrar información detallada de la API key
         console.log('API Key from storage:', apiKeyFromStorage ? 'Present' : 'None');
         console.log('Has personal config:', hasPersonalConfig);
         if (hasPersonalConfig) {
-            console.log('Personal config key prefix:', PERSONAL_CONFIG.apiKey.substring(0, 20) + '...');
+            console.log('Personal config key (full):', PERSONAL_CONFIG.apiKey);
+            console.log('Personal config key length:', PERSONAL_CONFIG.apiKey.length);
+            console.log('Personal config key starts with sk-or-v1-:', PERSONAL_CONFIG.apiKey.startsWith('sk-or-v1-'));
+            console.log('Personal config key prefix:', PERSONAL_CONFIG.apiKey.substring(0, 25));
         }
-        console.log('Final API key prefix:', apiKey ? apiKey.substring(0, 20) + '...' : 'None');
+        console.log('Final API key (full):', apiKey);
+        console.log('Final API key length:', apiKey ? apiKey.length : 0);
+        console.log('Final API key starts with sk-or-v1-:', apiKey ? apiKey.startsWith('sk-or-v1-') : false);
+        console.log('Final API key prefix:', apiKey ? apiKey.substring(0, 25) : 'None');
 
         // Dark Mode Management
         function initDarkMode() {
@@ -554,19 +568,23 @@ Importante:
                  const openrouterUrl = 'https://openrouter.ai/api/v1/chat/completions';
                  console.log('URL:', openrouterUrl);
                  
-                 const response = await fetch(openrouterUrl, {
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json',
-                         'Authorization': `Bearer ${apiKey}`
-                     },
-                     body: JSON.stringify({
-                         model: 'stepfun/step-3.5-flash:free',
-                         messages: conversationHistory.filter(m => m && m.role && m.content),
-                         temperature: 0.9,
-                         max_tokens: 2048
-                     })
-                 });
+                  // Depuración: Mostrar exactamente lo que estamos enviando
+                  const requestHeaders = {
+                      'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${apiKey}`
+                  };
+                  console.log('Request Headers:', requestHeaders);
+                  
+                  const response = await fetch(openrouterUrl, {
+                      method: 'POST',
+                      headers: requestHeaders,
+                      body: JSON.stringify({
+                          model: 'stepfun/step-3.5-flash:free',
+                          messages: conversationHistory.filter(m => m && m.role && m.content),
+                          temperature: 0.9,
+                          max_tokens: 2048
+                      })
+                  });
 
                 console.log('=== RESPONSE STATUS ===');
                 console.log('Status:', response.status);
