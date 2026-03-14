@@ -340,14 +340,15 @@ Importante:
             const container = document.getElementById('chatMessages');
             const messagesDiv = container.querySelector('.max-w-full');
 
+            const timestamp = Date.now();
             const typingHTML = `
-                <div class="typing-indicator-container flex gap-2 md:gap-4">
+                <div class="typing-indicator-container flex gap-2 md:gap-4" id="typing-${timestamp}">
                     <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm">
                         <span class="text-white text-[10px] md:text-xs font-bold">UVG</span>
                     </div>
                     <div class="flex flex-col gap-1 message-bubble">
                         <span class="text-[10px] md:text-xs font-medium text-gray-500 dark:text-gray-400 ml-1">Asistente UVG</span>
-                        <div class="typing-bubble bg-gray-100 dark:bg-[#2a2a3e] text-gray-800 dark:text-gray-100 p-3 md:p-4 rounded-2xl rounded-tl-sm shadow-sm transition-theme">
+                        <div class="typing-bubble bg-gray-100 dark:bg-[#2a2a3e] text-gray-800 dark:text-gray-100 p-3 md:p-4 rounded-2xl rounded-tl-sm shadow-sm transition-theme" id="bubble-${timestamp}">
                             <div class="typing-dots flex gap-1">
                                 <span class="w-2 h-2 bg-primary rounded-full animate-bounce"></span>
                                 <span class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
@@ -360,12 +361,13 @@ Importante:
 
             messagesDiv.insertAdjacentHTML('beforeend', typingHTML);
             container.scrollTop = container.scrollHeight;
+            return timestamp;
         }
 
-        function replaceTypingWithMessage(content) {
-            const typingBubble = document.querySelector('.typing-bubble');
+        function replaceTypingWithMessage(content, timestamp) {
+            const typingBubble = document.getElementById('bubble-' + timestamp);
             if (!typingBubble) {
-                console.error('Typing bubble not found');
+                console.error('Typing bubble not found for timestamp:', timestamp);
                 return;
             }
 
@@ -382,7 +384,7 @@ Importante:
 
                 typingBubble.innerHTML = `<div class="text-xs md:text-sm leading-relaxed">${formattedContent}</div>`;
 
-                const indicatorContainer = document.querySelector('.typing-indicator-container');
+                const indicatorContainer = document.getElementById('typing-' + timestamp);
                 if (indicatorContainer) {
                     indicatorContainer.classList.remove('typing-indicator-container');
                 }
@@ -425,7 +427,7 @@ Importante:
                 content: message
             });
 
-            showTypingIndicator();
+            const currentTimestamp = showTypingIndicator();
 
             try {
                 // Debug: Log request details
@@ -482,12 +484,12 @@ Importante:
                     content: assistantMessage
                 });
 
-                replaceTypingWithMessage(assistantMessage);
+                replaceTypingWithMessage(assistantMessage, currentTimestamp);
 
             } catch (error) {
                 console.error('Error completo:', error);
                 const errorMessage = `❌ Error: ${error.message}. Por favor intenta de nuevo.`;
-                replaceTypingWithMessage(errorMessage);
+                replaceTypingWithMessage(errorMessage, currentTimestamp);
                 conversationHistory.pop();
                 showToast('Error: ' + error.message);
             } finally {
