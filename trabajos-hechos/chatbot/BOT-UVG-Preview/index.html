@@ -543,8 +543,10 @@ Importante:
             try {
                 console.log('=== SENDING REQUEST ===');
                 console.log('Model:', 'kilo-auto/free');
+                console.log('API Key prefix:', apiKey.substring(0, 20));
 
                 const kiloUrl = `https://api.kilo.ai/api/gateway/chat/completions`;
+                console.log('URL:', kiloUrl);
                 
                 const response = await fetch(kiloUrl, {
                     method: 'POST',
