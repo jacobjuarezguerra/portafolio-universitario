@@ -541,17 +541,17 @@ Importante:
             const apiKey = 'AIzaSyABiIatHeEMJ4mK9Kcit8A29tRnAuliq5k';
 
             try {
-                // Debug: Log request details
                 console.log('=== SENDING REQUEST ===');
-                console.log('API Key exists:', !!apiKey);
-                console.log('API Key prefix:', apiKey ? apiKey.substring(0, 10) + '...' : 'NONE');
-                console.log('Model:', 'gemini-flash-lite-latest');
+                console.log('Model:', 'gemini-3-flash-preview');
 
-                // Gemini API key
-                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${apiKey}`;
+                const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent`;
                 
                 const response = await fetch(geminiUrl, {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-goog-api-key': apiKey
+                    },
                     headers: {
                         'Content-Type': 'application/json'
                     },
